@@ -1,0 +1,1 @@
+from rest_framework import permissionsclass AdminCheckPermission(permissions.BasePermission):    """    Global permission check for admin users.    """    def has_permission(self, request, view):        return request.user and request.user.is_staff
