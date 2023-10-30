@@ -20,6 +20,14 @@ class Profile(models.Model):
     who = models.CharField(max_length=10, choices=PHONE_CHOICES)
     telegram_username = models.CharField(max_length=30, null=True)
 
+
+class Photo(models.Model):
+    image = models.ImageField(upload_to='photos/')
+
+    def __str__(self):
+        return self.image.name
+
+
 class Product(models.Model):
     SIZE_CHOICES = (
         ('XS', 'Extra Small'),
@@ -45,11 +53,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-
-class Photo(models.Model):
-    image = models.ImageField(upload_to='photos/')
-
-    def __str__(self):
-        return self.image.name
-from django.db import models
-
